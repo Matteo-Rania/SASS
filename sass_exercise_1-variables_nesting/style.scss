@@ -2,6 +2,7 @@ $--border: 2px solid;
 $--padding: 1ch;
 $--center: center;
 $--color-primary:red;
+$--color-secondary:green;
 $--color-tertiary:blue;
 
 div{
@@ -9,7 +10,7 @@ div{
 }
 h1{
     text-align: $--center;
-    color: green;
+    color: $--color-secondary;
     span{
         border-bottom: $--border $--color-tertiary;
     }
@@ -19,7 +20,7 @@ section{
     padding: $--padding;
 }
 article{
-    border: $--border green;
+    border: $--border $--color-secondary;
     padding: $--padding;
     text-align: $--center;
     &:nth-of-type(odd){
