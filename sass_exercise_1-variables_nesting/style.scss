@@ -1,0 +1,28 @@
+$--border: 2px solid;
+$--padding: 1ch;
+$--center: center;
+div{
+    border: $--border red
+}
+h1{
+    text-align: $--center;
+    color: green;
+    span{
+        border-bottom: $--border blue;
+    }
+}
+section{
+    display: flex;
+    padding: $--padding;
+}
+article{
+    border: $--border green;
+    padding: $--padding;
+    text-align: $--center;
+    &:nth-of-type(odd){
+        color: blue;
+    }
+    &:nth-of-type(even){
+        color: red;
+    }
+}
