@@ -1,14 +1,17 @@
 $--border: 2px solid;
 $--padding: 1ch;
 $--center: center;
+$--color-primary:red;
+$--color-tertiary:blue;
+
 div{
-    border: $--border red
+    border: $--border $--color-primary
 }
 h1{
     text-align: $--center;
     color: green;
     span{
-        border-bottom: $--border blue;
+        border-bottom: $--border $--color-tertiary;
     }
 }
 section{
@@ -20,9 +23,9 @@ article{
     padding: $--padding;
     text-align: $--center;
     &:nth-of-type(odd){
-        color: blue;
+        color: $--color-tertiary;
     }
     &:nth-of-type(even){
-        color: red;
+        color: $--color-primary;
     }
 }
