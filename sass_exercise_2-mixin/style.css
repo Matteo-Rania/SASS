@@ -1,0 +1,44 @@
+div {
+  border: 2px solid red;
+}
+
+h1 {
+  text-align: center;
+  color: green;
+}
+h1 span {
+  border-bottom: 2px solid blue;
+}
+
+section {
+  padding: 1ch;
+}
+section:first-of-type {
+  display: flex;
+}
+
+.main article:nth-of-type(odd) {
+  color: blue;
+  border: 2px solid green;
+  font-size: 1rem;
+  padding: 1ch;
+  text-align: center;
+}
+
+.main article:nth-of-type(even) {
+  color: red;
+  border: 2px solid green;
+  font-size: 1rem;
+  padding: 1ch;
+  text-align: center;
+}
+
+.footer article {
+  color: green;
+  border: 2px solid blue;
+  font-size: 24px;
+  padding: 1ch;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
