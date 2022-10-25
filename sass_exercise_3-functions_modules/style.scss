@@ -1,0 +1,35 @@
+@use "functions" as f;
+@import "variables";
+div{
+    border: $border $color-primary
+}
+h1{
+    text-align: center;
+    color: $color-secondary;
+    span{
+        border-bottom: $border blue;
+    }
+}
+
+section{
+    padding: f.rem(10);
+    &:first-of-type{
+        display: flex;
+    }
+}
+@mixin article($color, $border-color,$font-size: 1rem){
+    color: $color;
+    border: $border $border-color;
+    font-size: $font-size;
+    padding: f.rem(10);
+    text-align: center;
+}
+.main article:nth-of-type(odd){
+    @include article(blue,$color-secondary)
+}
+.main article:nth-of-type(even){
+    @include article($color-primary,$color-secondary)
+}
+.footer article{
+    @include article($color-secondary,blue,f.rem(24))
+}
