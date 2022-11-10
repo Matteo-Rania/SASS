@@ -1,0 +1,104 @@
+$color-primary: red;
+$color-secondary: green;
+$color-tertiary: blue;
+@use "./functions" as f;
+$border: f.rem(2) solid;
+@use "sass:color";
+
+
+.container {
+    border: $border $color-primary;
+    padding: 1rem;
+    %text {
+        color: $color-secondary;
+        text-align: center;
+        margin: 0 auto
+    }
+
+    h1 {
+        @extend %text;
+        text-decoration: underline;
+        text-decoration-color: $color-tertiary;
+    }
+
+    h2 {
+        @extend %text;
+        text-decoration: none;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        border: $border $color-primary;
+        padding: 1rem;
+        width: fit-content;
+    }
+
+    .articles {
+        padding: f.rem(10);
+
+        &:first-of-type {
+            display: flex;
+        }
+    }
+}
+
+@mixin article($color, $border-color, $font-size: 1rem) {
+    color: $color;
+    border: $border $border-color;
+    font-size: $font-size;
+    padding: f.rem(10);
+    text-align: center;
+}
+
+.articles article:nth-of-type(odd) {
+    @include article($color-tertiary, $color-secondary)
+}
+
+.articles article:nth-of-type(even) {
+    @include article($color-primary, $color-secondary)
+}
+
+.footer article {
+    @include article($color-secondary, $color-tertiary, f.rem(24))
+}
+
+
+.numbers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .7rem;
+
+    div {
+        flex: 1;
+        height: f.rem(45);
+        max-width: f.rem(45);
+        border: solid f.rem(1) red;
+
+        $max: 20;
+
+        @for $i from 1 to $max {
+            &:nth-child(#{$i}) {
+                @if $i ==10 {
+                    background-color: $color-tertiary;
+                    color: $color-primary;
+                }
+
+                @else {
+                    $percentage: $i*5%;
+                    background-color: darken($color: white, $amount: $percentage);
+                    color: lighten($color: black, $amount: $percentage);
+                }
+            }
+        }
+
+        $font-sizes: 1rem, 2rem, 3rem;
+
+        @each $size in $font-sizes {
+            &.fs-#{$size} {
+                font-size: $size;
+            }
+        }
+    }
+}
+
+.footer {
+    @include article($color-tertiary, 24px, $color-secondary);
+}
